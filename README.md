@@ -10,46 +10,201 @@ This repository serves as a structured record of coursework completed throughout
 
 ```text
 COMP395/
-├── .vscode/
-├── Assignments/
-│   ├── Assignment 1-Differentiation through multiple representations/
+├── .vscode
+├── Assignments
+│   ├── Assignment 1-Differentiation through multiple representations
 │   │   └── Assignment 1.ipynb
-│   ├── Assignment 2-Partial Derivatives and Gradients/
-│   └── Assignment 3-Gradient Descent from Scratch/
+│   ├── Assignment 2-Partial Derivatives and Gradients
+│   └── Assignment 3-Gradient Descent from Scratch
 │       └── Assignment 3.ipynb
-├── Labs/
-│   ├── Lab 1-Introduction to PyTorch and GPU Computing/
-│   │   ├── Lab1_files/
+├── Justice and Equity
+│   └── Compas Analysis
+│       ├── .gitignore
+│       ├── COMPAS Analysis - Student.ipynb
+│       ├── Compas Analysis.ipynb
+│       ├── Cox with interaction term and independent variables.ipynb
+│       └── truth_tables.py
+├── Labs
+│   ├── Lab 1-Introduction to PyTorch and GPU Computing
+│   │   ├── Lab1_files
+│   │   │   ├── Lab1_16_0.png
+│   │   │   └── Lab1_5_0.png
 │   │   ├── bonus_speedup_threshold.png
 │   │   ├── cpu_vs_gpu_benchmark.png
 │   │   ├── Lab1.pdf
 │   │   └── wu_charlie_lab1.ipynb
-│   └── Lab 2-Breast Cancer/
-│       ├── report/
-│       │   ├── README.md
+│   ├── Lab 2-Breast Cancer
+│   │   ├── .github
+│   │   │   └── workflows
+│   │   ├── .pytest_cache
+│   │   │   ├── v
+│   │   │   │   └── cache
+│   │   │   ├── .gitignore
+│   │   │   └── README.md
+│   │   ├── report
+│   │   │   ├── README.md
+│   │   │   ├── report.pdf
+│   │   │   └── training_results.png
+│   │   ├── sample_report
+│   │   │   ├── accuracy_comparison.png
+│   │   │   ├── make_figures.py
+│   │   │   ├── sample_report.pdf
+│   │   │   └── training_loss.png
+│   │   ├── .gitignore
+│   │   ├── binary_classification.py
+│   │   ├── binary_classification_pytorch.py
+│   │   ├── comparison.py
+│   │   ├── overleaf-tutorial.pdf
+│   │   ├── README.md
+│   │   ├── test_binary_classification.py
+│   │   ├── test_comparison.py
+│   │   ├── training_results.png
+│   │   └── training_results_pytorch.png
+│   └── Lab 3-MLPs on Sonar_Design, Experiment, Report
+│       ├── .github
+│       │   └── workflows
+│       ├── .pytest_cache
+│       │   ├── v
+│       │   │   └── cache
+│       │   ├── .gitignore
+│       │   └── README.md
+│       ├── report
 │       │   ├── report.pdf
-│       │   └── training_results.png
-│       ├── sample_report/
-│       │   ├── accuracy_comparison.png
-│       │   ├── make_figures.py
-│       │   ├── sample_report.pdf
-│       │   └── training_loss.png
-│       ├── binary_classification.py
-│       ├── binary_classification_pytorch.py
+│       │   ├── wandb_train_loss.png
+│       │   └── wandb_val_loss.png
+│       ├── wandb
+│       │   ├── run-20261014_150807-x686e73y
+│       │   │   ├── files
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   ├── run-20261014_151118-7z63spiz
+│       │   │   ├── files
+│       │   │   │   └── media
+│       │   │   │       ├── images
+│       │   │   │       │   └── training_results_99_67ff575d4983bd744295.png
+│       │   │   │       └── table
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   ├── run-20261014_195715-kgvbadbf
+│       │   │   ├── files
+│       │   │   │   └── media
+│       │   │   │       └── images
+│       │   │   │           └── training_results_99_17dcd2338cf0da220897.png
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   ├── run-20261014_195728-5wtuh51j
+│       │   │   ├── files
+│       │   │   │   └── media
+│       │   │   │       └── images
+│       │   │   │           └── training_results_99_7073485d16389eedd889.png
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   ├── run-20261014_195742-k9liqnck
+│       │   │   ├── files
+│       │   │   │   └── media
+│       │   │   │       └── images
+│       │   │   │           └── training_results_99_5811c128094360af7220.png
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   ├── run-20261014_195754-ramacqkm
+│       │   │   ├── files
+│       │   │   │   └── media
+│       │   │   │       └── images
+│       │   │   │           └── training_results_99_c16b62e4839645c533dd.png
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   ├── run-20261014_195808-h3i1g77q
+│       │   │   ├── files
+│       │   │   │   └── media
+│       │   │   │       └── images
+│       │   │   │           └── training_results_99_fa6b5317df6e6cecbd47.png
+│       │   │   ├── logs
+│       │   │   └── tmp
+│       │   │       └── code
+│       │   └── run-20261014_200509-e4xzvoed
+│       │       ├── files
+│       │       ├── logs
+│       │       └── tmp
+│       │           └── code
+│       ├── .gitignore
 │       ├── comparison.py
-│       ├── test_binary_classification.py
+│       ├── Documentation Answers.md
+│       ├── linear_baseline_wandb.py
+│       ├── overleaf-tutorial.pdf
+│       ├── read-if-m2l2.pdf
+│       ├── README.md
+│       ├── sonar_data.py
+│       ├── sonar_mlp.py
 │       ├── test_comparison.py
-│       ├── training_results.png
-│       └── training_results_pytorch.png
-├── Lecture/
-│   ├── Lecture 1-Matrix_operations_in_pytorch/
+│       ├── test_sonar_mlp.py
+│       └── training_results.png
+├── Lecture
+│   ├── Lecture 1-Matrix Operations in Pytorch
 │   │   └── Lecture 1.ipynb
-│   ├── Lecture 2-Partial_Derivatives_and_Gradients/
+│   ├── Lecture 2-Partial Derivatives and Gradients
 │   │   └── Lecture 2.ipynb
-│   └── Lecture 3-Gradient Descent/
-│       └── Lecture 3.ipynb
-├── Tools/
+│   ├── Lecture 3-Gradient Descent from Scratch
+│   │   └── Lecture 3.ipynb
+│   ├── Lecture 4-Convolutional Neural Network
+│   │   ├── Day 1-Convolution
+│   │   │   ├── Cameraman.png
+│   │   │   └── Convolution.ipynb
+│   │   └── Day 2-CNN Architecture
+│   │       ├── Architecture.ipynb
+│   │       ├── astronaut.png
+│   │       └── cameraman.png
+│   ├── Lecture 5-Word Embeddings_Meaning in Numbers
+│   │   └── Lecture 5.ipynb
+│   ├── Lecture 6-RNN
+│   │   ├── Day 1-Companion
+│   │   │   └── Companion.ipynb
+│   │   ├── Day 2-Sentiment
+│   │   │   ├── data
+│   │   │   └── Sentiment.ipynb
+│   │   └── Sequence2Sequence Translation
+│   │       └── seq2seq_translation-DL-F26
+│   │           ├── data
+│   │           │   └── spa-eng
+│   │           ├── wandb
+│   │           │   └── run-20261026_160229-myc70tuv
+│   │           │       ├── files
+│   │           │       │   └── media
+│   │           │       │       ├── images
+│   │           │       │       │   └── translation_results_19_17bca466c87e04fcff37.png
+│   │           │       │       └── table
+│   │           │       ├── logs
+│   │           │       └── tmp
+│   │           │           └── code
+│   │           ├── .gitignore
+│   │           ├── README.md
+│   │           ├── seq2seq_translation_wandb.py
+│   │           ├── translate.py
+│   │           └── translation_results.png
+│   ├── Lecture 7-Transformers
+│   │   ├── attentionisallyouneed.pdf
+│   │   ├── Day 1.ipynb
+│   │   └── Day 2.ipynb
+│   └── Lecture 8-BERT
+│       └── Bert imdb finetune.ipynb
+├── Tools
 │   └── Project_tree.py
+├── wandb
+│   ├── run-20260930_141501-ngvlybmg
+│   │   ├── files
+│   │   ├── logs
+│   │   └── tmp
+│   │       └── code
+│   └── run-20261026_151354-1hfalpdr
+│       ├── files
+│       ├── logs
+│       └── tmp
+│           └── code
 ├── .gitignore
 ├── LICENSE
 └── README.md
@@ -106,13 +261,69 @@ Hands-on implementations and experiments using Python and PyTorch.
 - Training-result visualization
 - Report generation and analysis
 
+#### Lab 3 — MLPs on Sonar: Design, Experiment, Report
+
+- Binary classification of sonar returns from mines and rocks
+- Multilayer perceptrons built with `nn.Sequential`
+- Controlled experiments comparing hidden-layer width, depth, activation functions, and optimizers
+- ReLU and Tanh activations with Adam and SGD optimizers
+- Comparison with a linear baseline and a Random Forest on the same data split
+- Weights & Biases tracking of configurations, losses, accuracy, and model artifacts
+- Automated tests for model structure, nonlinearity, training, and performance
+- Experiment report with learning curves and analysis of generalization
+
 ### Lectures
 
 Lecture notebooks and examples organized by topic.
 
 - **Lecture 1 — Matrix Operations in PyTorch**
+  - Creating vectors and matrices as PyTorch tensors and inspecting their shapes
+  - Random tensor generation with `torch.rand` and `torch.randn`
+  - Element-wise addition, subtraction, and multiplication
+  - Matrix multiplication with `@` and `matmul`, including input and output dimensions
+
 - **Lecture 2 — Partial Derivatives and Gradients**
+  - Building two-variable function grids with NumPy `meshgrid`
+  - Visualizing the surface of `f(x, y) = x² + y²` with Matplotlib
+  - Relating partial derivatives to slopes in each coordinate direction at a selected point
+
 - **Lecture 3 — Gradient Descent**
+  - Defining a quadratic objective and computing its gradient explicitly with NumPy
+  - Implementing gradient descent updates from scratch
+  - Learning-rate settings, iteration limits, and gradient-norm stopping criteria
+  - Visualizing the optimization path on a contour plot and checking the final minimum
+
+- **Lecture 4 — Convolutional Neural Networks**
+  - Image tensors, color channels, batch dimensions, and feature-map shapes
+  - Convolution and max pooling implemented from scratch
+  - Edge detection and filter experiments using Sobel kernels and `nn.Conv2d`
+  - CNN construction with `nn.Module`, MNIST classification, and analysis of learned filters and prediction errors
+
+- **Lecture 5 — Word Embeddings: Meaning in Numbers**
+  - Pretrained GloVe vectors, cosine similarity, and nearest-neighbor exploration
+  - Word analogies through vector arithmetic
+  - PCA visualization and reflection on bias in word embeddings
+  - Loading pretrained vectors into PyTorch `nn.Embedding`
+
+- **Lecture 6 — Recurrent Neural Networks**
+  - Hidden-state dynamics and visualization of vanishing and exploding gradients
+  - Text preprocessing, GloVe embeddings, and RNN/LSTM sentiment classification on IMDB
+  - Gradient measurements by word position and analysis of custom review predictions
+  - Extensions comparing text truncation, gradient clipping, and GRU models
+  - English-to-Spanish encoder-decoder translation with teacher forcing, BLEU evaluation, W&B tracking, and interactive inference
+
+- **Lecture 7 — Transformers**
+  - Scaled dot-product attention, query/key/value projections, and multi-head tensor shapes
+  - Causal masking and sinusoidal positional encoding
+  - Self-attention implemented as an `nn.Module`
+  - Position-wise feed-forward networks and layer normalization
+  - KV caching for autoregressive inference, including timing and memory-use comparisons
+
+- **Lecture 8 — BERT: Pretraining and Fine-Tuning**
+  - WordPiece tokenization, special tokens, attention masks, and review truncation
+  - Fine-tuning pretrained BERT-Tiny for IMDB sentiment classification
+  - Comparison with RNN and LSTM results, including accuracy and recorded training times
+  - Custom review tests involving negation, sarcasm, and changes in sentiment
 
 ### Tools
 

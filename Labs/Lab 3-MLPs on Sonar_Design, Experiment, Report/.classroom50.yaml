@@ -1,0 +1,12 @@
+schema: "classroom50/repo-config/v1"
+classroom: "comp-395-2-deep-learning"
+assignment: "lab-3-sonar"
+owner:
+  username: "CharlieWu0788"
+  id: 147692586
+  accepted_at: "2026-10-14T21:44:25Z"
+source:
+  owner: "AI-at-Oxy"
+  owner_id: 253783941
+  repo: "lab-3-sonar"
+  branch: "main"

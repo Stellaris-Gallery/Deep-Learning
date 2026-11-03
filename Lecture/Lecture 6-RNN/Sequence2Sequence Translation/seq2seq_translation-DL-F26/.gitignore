@@ -1,0 +1,4 @@
+data/
+checkpoint.pt
+wandb/
+__pycache__/
