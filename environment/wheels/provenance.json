@@ -1,0 +1,21 @@
+{
+  "distribution": "gensim",
+  "version": "4.4.0",
+  "python_abi": "cp314",
+  "platform": "win_amd64",
+  "wheel": "gensim-4.4.0-cp314-cp314-win_amd64.whl",
+  "wheel_sha256": "afb49c171b31d2dcff43536ff156b9cb9b309bd0dc67b089707d05315cac917b",
+  "source_archive": "gensim-4.4.0-cp314-source.tar.gz",
+  "source_sha256": "f02aaaa98191c350a2f5e58b836cb980fa075e7bd73d1d2de3f46527a994b2a1",
+  "upstream_source": "https://github.com/piskvorky/gensim/tree/4.4.0",
+  "build_tools": [
+    "Visual Studio 2022 C++ Build Tools and Windows SDK",
+    "Cython 3.3.0"
+  ],
+  "modifications": [
+    "Restored fastss.pyx from upstream 4.4.0",
+    "Regenerated Cython C extensions for Python 3.14"
+  ],
+  "saved_build_log_evidence": "Created wheel for gensim: filename=gensim-4.4.0-cp314-cp314-win_amd64.whl size=24558320 sha256=afb49c171b31d2dcff43536ff156b9cb9b309bd0dc67b089707d05315cac917b",
+  "license": "See COPYING in the source archive and wheel license metadata"
+}

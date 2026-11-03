@@ -330,6 +330,8 @@ Lecture notebooks and examples organized by topic.
 Utilities used to inspect and maintain the repository.
 
 - `Tools/Project_tree.py` — generates formatted directory trees at multiple levels of detail
+- `Tools/setup_environment.ps1` — rebuilds the isolated Windows Python 3.14 environment from locked dependencies
+- `Tools/check_environment.py` — checks package versions, coursework libraries, and computation on each visible GPU
 
 ---
 
@@ -346,6 +348,16 @@ Course work is developed primarily with:
 - Weights & Biases (W&B)
 
 GPU-enabled experiments are run with PyTorch CUDA support when appropriate.
+
+The Windows deployment package uses **Python 3.14**, **PyTorch 2.10.0**, and **CUDA 13.0**. It includes a dependency lockfile and the existing Python 3.14 Gensim wheel with its source and provenance. See [environment setup and workstation instructions](environment/README.md).
+
+From the repository root, after installing 64-bit Python 3.14 and a compatible NVIDIA driver:
+
+```powershell
+powershell -NoProfile -ExecutionPolicy Bypass -File .\Tools\setup_environment.ps1 -ExpectedGpuCount 2
+```
+
+Use `-ExpectedGpuCount 1` on the laptop. Select `.venv\Scripts\python.exe` as the notebook interpreter after setup. Installation runs environment checks; notebook training is started separately. The two original COMPAS reference notebooks require additional R/rpy2 dependencies, as documented in the environment guide.
 
 Local virtual environments, caches, experiment logs, and other machine-specific runtime files are excluded from version control.
 
@@ -414,3 +426,5 @@ These modes can also be launched through:
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE).
+
+Bundled Gensim artifacts retain their upstream LGPL license; see [the bundled build and source notes](environment/wheels/README.md).
