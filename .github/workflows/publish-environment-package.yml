@@ -1,0 +1,69 @@
+name: Publish Windows environment package
+
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version of the environment-v* release
+        required: true
+        default: '1.0.0'
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: windows-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PACKAGE_VERSION: ${{ inputs.version }}
+      PACKAGE_ID: StellarisGallery.COMP395.WindowsEnvironment
+    steps:
+      - name: Verify the release asset and package it for NuGet
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          if ($env:PACKAGE_VERSION -notmatch '^\d+\.\d+\.\d+$') { throw 'Expected a numeric major.minor.patch version' }
+          $repoUrl = "https://github.com/$env:GITHUB_REPOSITORY"
+          $tag = "environment-v$env:PACKAGE_VERSION"
+          $release = gh api "repos/$env:GITHUB_REPOSITORY/releases/tags/$tag" | ConvertFrom-Json
+          $assetName = 'COMP395-environment-python314-windows.zip'
+          $asset = $release.assets | Where-Object name -eq $assetName
+          if (!$asset -or $release.draft) { throw 'Expected a published environment ZIP' }
+          gh release download $tag --repo $env:GITHUB_REPOSITORY --pattern $assetName
+          if ($LASTEXITCODE -ne 0) { throw 'Release download failed' }
+          $digest = (Get-FileHash -LiteralPath $assetName).Hash.ToLowerInvariant()
+          if ("sha256:$digest" -ne $asset.digest) { throw 'Release asset digest mismatch' }
+          @"
+          <?xml version="1.0"?>
+          <package>
+            <metadata>
+              <id>$env:PACKAGE_ID</id>
+              <version>$env:PACKAGE_VERSION</version>
+              <authors>$env:GITHUB_REPOSITORY_OWNER</authors>
+              <description>Windows x64 Python 3.14 deployment kit for COMP395. Extract the ZIP in tools into your course checkout and follow environment/README.md.</description>
+              <projectUrl>$repoUrl/releases/tag/$tag</projectUrl>
+              <repository type="git" url="$repoUrl" />
+            </metadata>
+            <files>
+              <file src="$assetName" target="tools" />
+            </files>
+          </package>
+          "@ | Set-Content -Encoding utf8 COMP395.nuspec
+          nuget pack COMP395.nuspec -NonInteractive
+          if ($LASTEXITCODE -ne 0) { throw 'NuGet pack failed' }
+
+      - name: Publish to the repository's GitHub Packages registry
+        shell: pwsh
+        run: |
+          $source = "https://nuget.pkg.github.com/$env:GITHUB_REPOSITORY_OWNER/index.json"
+          $package = "$env:PACKAGE_ID.$env:PACKAGE_VERSION.nupkg"
+          dotnet nuget push $package --api-key $env:GH_TOKEN --source $source --skip-duplicate
+          if ($LASTEXITCODE -ne 0) { throw 'Package upload failed' }
+          $endpoint = "orgs/$env:GITHUB_REPOSITORY_OWNER/packages/nuget/$env:PACKAGE_ID"
+          $info = gh api $endpoint | ConvertFrom-Json
+          if ($info.repository.full_name -ne $env:GITHUB_REPOSITORY) { throw 'Package repository link verification failed' }
+          $versions = gh api "$endpoint/versions" | ConvertFrom-Json
+          if ($env:PACKAGE_VERSION -notin $versions.name) { throw 'Published version missing' }
+          Write-Output "Verified $($info.html_url) ($($info.visibility)), version $env:PACKAGE_VERSION"
