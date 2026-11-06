@@ -1,0 +1,59 @@
+
+name: Workstation Deployment Record
+
+run-name: "Workstation | ${{ inputs.milestone }} | ${{ inputs.version }}"
+
+on:
+  workflow_dispatch:
+    inputs:
+      milestone:
+        description: "Verified deployment milestone"
+        required: true
+        type: choice
+        options:
+          - environment-ready
+          - pytorch-ready
+          - model-deployed
+          - maintenance-update
+
+      version:
+        description: "Public, non-sensitive version label"
+        required: true
+        type: string
+        default: "v1.0"
+
+      verified:
+        description: "I have completed and verified this deployment"
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  deployments: write
+
+jobs:
+  record-deployment:
+    name: Record verified workstation deployment
+
+    if: ${{ github.ref == 'refs/heads/main' && inputs.verified }}
+
+    runs-on: ubuntu-latest
+
+    environment:
+      name: Workstation
+
+    steps:
+      - name: Record deployment information
+        shell: bash
+        env:
+          MILESTONE: ${{ inputs.milestone }}
+          VERSION: ${{ inputs.version }}
+        run: |
+          echo "Workstation deployment record"
+          echo "Milestone: $MILESTONE"
+          echo "Version: $VERSION"
+          echo "Workflow commit: $GITHUB_SHA"
+          echo "Verification: Manually confirmed"
+          echo "Execution: GitHub-hosted runner"
+          echo "Note: No commands were executed on the workstation."
