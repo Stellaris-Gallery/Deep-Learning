@@ -1,0 +1,3 @@
+Diagnostic Run,Matrix Size,Iterations,Single Host Time (s),Single CUDA Time (s),Dual GPU 0 CUDA Time (s),Dual GPU 1 CUDA Time (s),Dual Wall Time (s),Single CUDA TFLOPS,Dual CUDA TFLOPS,CUDA Throughput Ratio,Status
+1,4096,50,0.253,0.2523,0.1723,0.233,0.2353,27.237,58.977,2.165,Unstable
+2,4096,50,0.2027,0.2024,0.1915,0.331,0.332,33.96,41.526,1.223,Unstable

@@ -1,0 +1,7 @@
+Run,Matrix Size,Iterations per GPU,Single GPU TFLOPS,Dual GPU TFLOPS,Speedup,Status
+1,4096,50,19.781,69.091,3.493,Unstable baseline
+1,8192,20,33.673,68.683,2.04,Valid
+1,16384,8,30.442,60.574,1.99,Valid
+2,4096,50,23.838,68.264,2.864,Unstable baseline
+2,8192,20,33.217,67.56,2.034,Valid
+2,16384,8,30.191,61.396,2.034,Valid
